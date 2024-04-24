@@ -15,35 +15,21 @@
             VerticalOptions="Center">
 
             <Label
-                Text="{Binding ButtonClicked}"
+                Text="Title"
                 FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="{Binding DisplayText}"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="Button1"
-                Text="Choice 1"
-                Command="{Binding Button1}"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="Button2"
-                Text="Choice 2"
-                Command="{Binding Button2}"
                 HorizontalOptions="Center" />
 
             <Button
                 x:Name="Button3"
-                IsVisible="{Binding test}"
-                Text="Choice 3"
-                Command="{Binding Button3}"
+                Text="Start"
+                Clicked="OnStartGameClicked"         
                 HorizontalOptions="Center" />
-
+            
+            <Button
+                x:Name="test"
+                IsVisible="false"
+                Command="{Binding StartButton}"
+                HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
