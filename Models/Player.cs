@@ -12,8 +12,8 @@ namespace testapp
         public int strength { get; set; } = 10;
         public int health { get; set; } = 100;
         public int gold { get; set; } = 10;
-        public Weapon weapon { get; set; } = null;
-        public Armor armor { get; set; } = null;
+        public Weapon weapon { get; set; }
+        public Armor armor { get; set; }
     }
 
     public class Item

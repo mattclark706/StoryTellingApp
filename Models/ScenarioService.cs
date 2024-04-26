@@ -9,34 +9,53 @@ namespace testapp
     public static class ScenarioService
     {
         // Starting Scenario
-        public static StartingScenario start = new StartingScenario();
+        static StartingScenario start = new StartingScenario();
+
+        // Final Boss
+        static FinalBoss Boss = new FinalBoss();
 
         //Fight Scenarios
-        public static Scenario Eagle = new FightScenario("Fight Eagle", "Eagle", 20, 50);
-        public static Scenario Bear = new FightScenario("Fight Bear", "Bear", 15, 150);
-        public static Scenario Wolf = new FightScenario("Fight Wolf", "Wolf", 10, 100);
+        static Scenario Eagle = new FightScenario("Fight Eagle", "Eagle", 20, 50);
+        static Scenario Bear = new FightScenario("Fight Bear", "Bear", 15, 150);
+        static Scenario Wolf = new FightScenario("Fight Wolf", "Wolf", 10, 100);
 
         //Monster List
         static List<Scenario> monsterList = new List<Scenario> { Eagle, Bear, Wolf };
 
-        //Search Scenarios and items
-        public static Item MetalArmor = new Armor("MetalArmor", 20);
-        public static Scenario Hut = new SearchScenario("Search Hut", "Inside", "Basement", "Garden", MetalArmor);
-        public static Item GreatSword = new Weapon("GreatSword", 30);
-        public static Scenario Castle = new SearchScenario("Search Castle", "Hall", "Towers", "Cells", GreatSword);
-        public static Item Gold = new Gold("Gold", 20);
-        public static Scenario Oasis = new SearchScenario("Search Oasis", "Bushes", "Water", "Mud", Gold);
+        //Items
+        static Armor WoodenArmor = new Armor("WoodArmor", 10);
+        static Weapon WoodenSword = new Weapon("WoodenSword", 10);
+        static Armor StoneArmor = new Armor("StoneArmor", 15);
+        static Weapon StoneSword = new Weapon("StoneSword", 15);
+        static Armor IronArmor = new Armor("IronArmor", 20);
+        static Weapon IronSword = new Weapon("IronSword", 30);
+        static Item Gold = new Gold("Gold", 20);
 
+        //Item List
+        static List<Item> itemList = new List<Item> { WoodenArmor, WoodenSword, StoneArmor, StoneSword, IronArmor, IronSword };
+
+        //Search Scenarios
+
+        static Scenario Hut = new SearchScenario("Search Hut", "Inside", "Basement", "Garden", IronArmor);
+        static Scenario Castle = new SearchScenario("Search Castle", "Hall", "Towers", "Cells", IronSword);
+        static Scenario Oasis = new SearchScenario("Search Oasis", "Bushes", "Water", "Mud", Gold);
+
+        //Search Scenario List
         static List<Scenario> searchList = new List<Scenario> { Hut, Castle, Oasis };
 
-        
+        //Shop Scenario
+        static Scenario WoodShop = new ShopScenario(WoodenArmor, WoodenSword);
+        static Scenario StoneShop = new ShopScenario(StoneArmor, StoneSword);
+        static Scenario IronShop = new ShopScenario(IronArmor, IronSword);
 
+        //Shop List
+        static List<Scenario> shopList = new List<Scenario> { WoodShop, StoneShop, IronShop };
 
-
+        //Return a random scenario from any of the 3 lists
         public static Scenario randomScenario()
         {
             Random rnd = new Random();
-            int num = rnd.Next(1, 3);
+            int num = rnd.Next(1, 4);
             if (num == 1)
             {
                 num = monsterList.Count;
@@ -51,10 +70,16 @@ namespace testapp
             }
             else
             {
-                return null;
+                num = shopList.Count;
+                num = rnd.Next(0, num);
+                return shopList[num];
             }
         }
 
+        public static Scenario getFinalBoss()
+        {
+            return Boss;
+        }
         public static StartingScenario getStartingScenario()
         {
             return start;

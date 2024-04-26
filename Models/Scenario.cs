@@ -11,7 +11,8 @@ namespace testapp
     {
         Fight,
         Search,
-        Choice,
+        Shop,
+        Boss,
         Start
     }
     public class Scenario
@@ -47,6 +48,11 @@ namespace testapp
             this.AnimalDamage = animalDamage;
             this.AnimalHealth = animalHealth;
         }
+
+        public FightScenario()
+        {
+
+        }
     }
 
     public class SearchScenario : Scenario
@@ -73,6 +79,32 @@ namespace testapp
             this.Location1 = location1;
             this.Location2 = location2;
             this.Location3 = location3;
+        }
+    }
+
+    public class ShopScenario : Scenario
+    {
+        public Armor Armor;
+        public Weapon Weapon;
+        public string None;
+        public ShopScenario(Armor armor, Weapon weapon)
+        {
+            this.Action = ScenarioAction.Shop;
+            this.Description = "You have come across a traveller selling wares, you may purchase an item if you have the coin";
+            this.Armor = armor;
+            this.Weapon = weapon;
+        }
+    }
+
+    public class FinalBoss : Scenario
+    {
+        public string Name = "Dragon";
+        public int BossDamage = 50;
+        public int BossHealth = 300;
+        public FinalBoss()
+        {
+            this.Description = "You have found the crown! However, it is guarded by a dragon! You must defeat the dragon to retrieve the crown";
+            this.Action = ScenarioAction.Boss;
         }
     }
 
