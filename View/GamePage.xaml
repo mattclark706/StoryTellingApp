@@ -13,7 +13,17 @@
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="{Binding PlayerHealth}" HorizontalOptions="Center"/>
+                <Label Text="{Binding PlayerGold}" HorizontalOptions="Center"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="{Binding PlayerArmor}" HorizontalOptions="Center"/>
+                <Label Text="{Binding PlayerWeapon}" HorizontalOptions="Center"/>
+            </HorizontalStackLayout>
 
             <Label
                 Text="{Binding DisplayText}"
@@ -36,7 +46,7 @@
                 x:Name="Button3"
                 Text="{Binding Button3Text}"
                 Command="{Binding Button3}"
-                IsVisible="{Binding Test}"
+                IsVisible="{Binding Button3Visible}"
                 HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>
