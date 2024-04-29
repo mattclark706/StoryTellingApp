@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testapp.View.InfoPage"
+             Title="InfoPage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundColorLight}, Dark={StaticResource BackgroundColorDark}}">
+    <VerticalStackLayout>
+        <Label 
+            Text="Options:"
+            FontSize="36"
+            Padding="10"
+            TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"
+            BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundColorLight}, Dark={StaticResource BackgroundColorDark}}"
+            HorizontalTextAlignment="Start"/>
+
+        <Button
+            Text="DarkModeToggle"
+            Padding="10"
+            Clicked="OnModeClicked"/>
+
+        <Label
+            Text="Instructions:"
+            Padding="10"
+            FontSize="36"
+            TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"
+            BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundColorLight}, Dark={StaticResource BackgroundColorDark}}"/>
+        
+        <Label
+            Text="After game start, read the information given within each scenario and click a button or action to continue, be careful as you choices affect the game"
+            Padding="10"
+            TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"
+            BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundColorLight}, Dark={StaticResource BackgroundColorDark}}"/>
+
+    </VerticalStackLayout>
+</ContentPage>

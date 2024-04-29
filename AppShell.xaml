@@ -4,11 +4,18 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:testapp"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
-        Title="Home"
+        Title="MainMenu"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" 
+        Shell.BackgroundColor="#512BD4"/>
+
+    <ShellContent
+        Title="Info"
+        ContentTemplate="{DataTemplate local:View.InfoPage}"
+        Route="InfoPage" 
+        Shell.BackgroundColor="#512BD4"/>
 
 </Shell>
