@@ -14,15 +14,15 @@ namespace testapp
         // Final Boss
         static FinalBoss Boss = new FinalBoss();
 
-        //Fight Scenarios
+        // Fight Scenarios
         static Scenario Eagle = new FightScenario("Fight Eagle", "Eagle", 20, 50);
         static Scenario Bear = new FightScenario("Fight Bear", "Bear", 15, 150);
         static Scenario Wolf = new FightScenario("Fight Wolf", "Wolf", 10, 100);
 
-        //Monster List
+        // Monster List
         static List<Scenario> monsterList = new List<Scenario> { Eagle, Bear, Wolf };
 
-        //Items
+        // Items
         static Armor WoodenArmor = new Armor("WoodArmor", 10);
         static Weapon WoodenSword = new Weapon("WoodenSword", 10);
         static Armor StoneArmor = new Armor("StoneArmor", 15);
@@ -31,31 +31,37 @@ namespace testapp
         static Weapon IronSword = new Weapon("IronSword", 30);
         static Item Gold = new Gold("Gold", 20);
 
-        //Item List
+        // Item List
         static List<Item> itemList = new List<Item> { WoodenArmor, WoodenSword, StoneArmor, StoneSword, IronArmor, IronSword };
 
-        //Search Scenarios
+        // Search Scenarios
 
-        static Scenario Hut = new SearchScenario("Search Hut", "Inside", "Basement", "Garden", IronArmor);
-        static Scenario Castle = new SearchScenario("Search Castle", "Hall", "Towers", "Cells", IronSword);
-        static Scenario Oasis = new SearchScenario("Search Oasis", "Bushes", "Water", "Mud", Gold);
+        static Scenario Hut = new SearchScenario("Search Hut", "Hut", "Inside", "Basement", "Garden", IronArmor);
+        static Scenario Castle = new SearchScenario("Search Castle", "Castle", "Hall", "Towers", "Cells", IronSword);
+        static Scenario Oasis = new SearchScenario("Search Oasis", "Oasis", "Bushes", "Water", "Mud", Gold);
 
-        //Search Scenario List
+        // Search Scenario List
         static List<Scenario> searchList = new List<Scenario> { Hut, Castle, Oasis };
 
-        //Shop Scenario
-        static Scenario WoodShop = new ShopScenario(WoodenArmor, WoodenSword);
-        static Scenario StoneShop = new ShopScenario(StoneArmor, StoneSword);
-        static Scenario IronShop = new ShopScenario(IronArmor, IronSword);
+        // Shop Scenarios
+        static Scenario WoodShop = new ShopScenario(WoodenArmor, WoodenSword, "Wood", "You have come across a traveller selling wooden items, you may purchase an item if you have the coin");
+        static Scenario StoneShop = new ShopScenario(StoneArmor, StoneSword, "Stone", "You have come across a mason selling stone items, you may purchase an item if you have the coin");
+        static Scenario IronShop = new ShopScenario(IronArmor, IronSword, "Iron", "You have come across a smith selling iron items, you may purchase an item if you have the coin");
 
-        //Shop List
+        // Shop List
         static List<Scenario> shopList = new List<Scenario> { WoodShop, StoneShop, IronShop };
+
+        // Action Scenarios
+        static Scenario Spider = new ActionScenario("You are caught in a spiders web");
+
+        //Action List
+        static List<Scenario> actionList = new List<Scenario> { Spider };
 
         //Return a random scenario from any of the 3 lists
         public static Scenario randomScenario()
         {
             Random rnd = new Random();
-            int num = rnd.Next(1, 4);
+            int num = rnd.Next(1, 5);
             if (num == 1)
             {
                 num = monsterList.Count;
@@ -68,11 +74,21 @@ namespace testapp
                 num = rnd.Next(0, num);
                 return searchList[num];
             }
-            else
+            else if (num == 3)
             {
                 num = shopList.Count;
                 num = rnd.Next(0, num);
                 return shopList[num];
+            }
+            else if (num == 4)
+            {
+                num = actionList.Count;
+                num = rnd.Next(0, num);
+                return actionList[num];
+            }
+            else
+            {
+                return null;
             }
         }
 

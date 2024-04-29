@@ -10,26 +10,28 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+            Spacing="10"
+            Padding="10,10">
 
+            <Image Source="adventure.jpg"/>
             <Label
-                Text="Title"
+                Text="A dragon has stolen the kings crown and you have been tasked with returning it. 
+                Press start to begin"
                 FontSize="32"
-                HorizontalOptions="Center" />
+                HorizontalTextAlignment="Center"/>
 
             <Button
                 x:Name="Button3"
                 Text="Start"
-                Clicked="OnStartGameClicked"         
-                HorizontalOptions="Center" />
-            
+                HeightRequest="80"
+                Clicked="OnStartGameClicked"/>
+
             <Button
                 x:Name="test"
                 IsVisible="false"
                 Command="{Binding StartButton}"
                 HorizontalOptions="Center" />
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
