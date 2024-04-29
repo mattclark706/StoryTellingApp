@@ -11,43 +11,52 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center"
-            HorizontalOptions="Center">
-
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Label Text="{Binding PlayerHealth}" HorizontalOptions="Center"/>
-                <Label Text="{Binding PlayerGold}" HorizontalOptions="Center"/>
+            Spacing="10" 
+            Padding="10">
+            <Button 
+                x:Name="PhotoBtn"
+                Text="Click here to take photo for character photo" 
+                Clicked="OnPhotoBtnClicked"
+                Command="{Binding TakePhotoCommand}" />
+            <HorizontalStackLayout HorizontalOptions="Start" Spacing="5">
+                <Image 
+                    Source="{Binding PhotoImage}" 
+                    WidthRequest ="200" 
+                    HeightRequest="150"/>
+                <VerticalStackLayout>
+                    <Label Text="Health:"/>
+                    <Label Text="{Binding PlayerHealth}"/>
+                    <Label Text="Gold:"/>
+                    <Label Text="{Binding PlayerGold}"/>
+                    <Label Text="Armor:"/>
+                    <Label Text="{Binding PlayerArmor}"/>
+                    <Label Text="Weapon:"/>
+                    <Label Text="{Binding PlayerWeapon}"/>
+                </VerticalStackLayout>
             </HorizontalStackLayout>
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Label Text="{Binding PlayerArmor}" HorizontalOptions="Center"/>
-                <Label Text="{Binding PlayerWeapon}" HorizontalOptions="Center"/>
-            </HorizontalStackLayout>
-
+            <Image Source="{Binding GameImage}"/>
             <Label
                 Text="{Binding DisplayText}"
                 FontSize="26"
-                HorizontalOptions="Center" />
+                HorizontalTextAlignment="Center"/>
 
             <Button
                 x:Name="Button1"
                 Text="{Binding Button1Text}"
                 Command="{Binding Button1}"
-                HorizontalOptions="Center" />
+                IsVisible="{Binding Button1Visible}"/>
 
             <Button
                 x:Name="Button2"
                 Text="{Binding Button2Text}"
                 Command="{Binding Button2}"
-                HorizontalOptions="Center" />
+                IsVisible="{Binding Button2Visible}"/>
 
             <Button
                 x:Name="Button3"
                 Text="{Binding Button3Text}"
                 Command="{Binding Button3}"
-                IsVisible="{Binding Button3Visible}"
-                HorizontalOptions="Center" />
+                IsVisible="{Binding Button3Visible}"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

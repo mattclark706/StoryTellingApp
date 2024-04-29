@@ -6,4 +6,9 @@ public partial class GamePage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void OnPhotoBtnClicked(object sender, EventArgs e)
+    {
+		PhotoBtn.IsVisible = false;
+    }
 }
