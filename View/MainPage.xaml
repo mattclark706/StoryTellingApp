@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="testapp.MainPage"
-             xmlns:local="clr-namespace:testapp">
+             xmlns:local="clr-namespace:testapp"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundColorLight}, Dark={StaticResource BackgroundColorDark}}">
 
     <ContentPage.BindingContext>
         <local:MainViewModel/>
@@ -18,12 +19,14 @@
                 Text="A dragon has stolen the kings crown and you have been tasked with returning it. 
                 Press start to begin"
                 FontSize="32"
+                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundColorLight}, Dark={StaticResource BackgroundColorDark}}"
                 HorizontalTextAlignment="Center"/>
 
             <Button
-                x:Name="Button3"
+                x:Name="Start"
                 Text="Start"
-                HeightRequest="80"
+                HeightRequest="100"
                 Clicked="OnStartGameClicked"/>
 
             <Button
@@ -31,6 +34,12 @@
                 IsVisible="false"
                 Command="{Binding StartButton}"
                 HorizontalOptions="Center" />
+
+            <Button
+                x:Name="Info"
+                Text="Info and Options"
+                HeightRequest="50"
+                Clicked="OnInfoClicked"/>
 
         </VerticalStackLayout>
     </ScrollView>

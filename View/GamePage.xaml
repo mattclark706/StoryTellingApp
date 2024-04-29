@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="testapp.GamePage"
              Title="GamePage"
-             xmlns:local="clr-namespace:testapp">
+             xmlns:local="clr-namespace:testapp"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundColorLight}, Dark={StaticResource BackgroundColorDark}}">
 
     <ContentPage.BindingContext>
         <local:MainViewModel/>
     </ContentPage.BindingContext>
+    
 
     <ScrollView>
         <VerticalStackLayout
@@ -38,6 +40,8 @@
             <Label
                 Text="{Binding DisplayText}"
                 FontSize="26"
+                TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundColorLight}, Dark={StaticResource BackgroundColorDark}}"
                 HorizontalTextAlignment="Center"/>
 
             <Button
