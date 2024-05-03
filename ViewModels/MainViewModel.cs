@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Android.App.Backup;
+using Android.Content.Res;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -230,7 +232,6 @@ namespace testapp
             }
             else
             {
-                reset(choice);
             }
             return Task.CompletedTask;
         }
@@ -343,10 +344,8 @@ namespace testapp
             }
             else
             {
-                //player.health = 0;
-                //gameOver = true;
-                //lose();
-                await App.Current.MainPage.DisplayAlert("Alert", "The spider eats you", "OK");
+                player.health -= 50;
+                await App.Current.MainPage.DisplayAlert("Alert", "The spider tries to eat you, you barely escape with your life!", "OK");
             }
             shake = false;
             ToggleAccelerometer();
@@ -397,35 +396,25 @@ namespace testapp
 
         public void win()
         {
+            GameImage = "adventure.jpg";
             DisplayText = "Well done! You win!";
-            Button1Text = "Play again";
-            Button2Text = "Main Menu";
-            button3Visible = false;
+            Button1Text = "Click the back button to return to main ";
+            Button2Text = "menu and play again!";
+            Button3Visible = false;
             gameOver = true;
         }
         public void lose()
         {
+            GameImage = "adventure.jpg";
             DisplayText = "You died and therefore, you lose";
-            Button1Text = "Play again";
-            Button2Text = "Main Menu";
-            button3Visible = false;
+            Button1Text = "Click the back button to return to main ";
+            Button2Text = "menu and try again!";
+            Button3Visible = false;
             gameOver = true;
-        }
-
-        public void reset(int choice)
-        {
-            if (choice == 1)
-            {
-                // somehow play again
-            }
-            else if (choice == 2)
-            {
-                //await App.Current.Navigation.PushAsync(new GamePage());
-            }
         }
         public void newScenario()
         {
-            if (gameState < 10)
+            if (gameState <= 10)
             {
                 scenario = ScenarioService.randomScenario();
                 if (scenario.Action == ScenarioAction.Fight)
@@ -508,7 +497,7 @@ namespace testapp
                     Button3Visible = false;
                 }
             }
-            else
+            else if(gameState == 11)
             {
                 scenario = ScenarioService.getFinalBoss();
                 GameImage = "dragon.jpg";
@@ -523,7 +512,6 @@ namespace testapp
             }
             gameState++;
         }
-        // check why this works a turn too late
         private void updatePlayerAttributes()
         {
             PlayerHealth = player.health;

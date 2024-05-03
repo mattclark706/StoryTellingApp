@@ -15,9 +15,9 @@ namespace testapp
         static FinalBoss Boss = new FinalBoss();
 
         // Fight Scenarios
-        static Scenario Eagle = new FightScenario("Fight Eagle", "Eagle", 20, 50);
-        static Scenario Bear = new FightScenario("Fight Bear", "Bear", 15, 150);
-        static Scenario Wolf = new FightScenario("Fight Wolf", "Wolf", 10, 100);
+        static Scenario Eagle = new FightScenario("You are attacked by an eagle! What will you do?", "Eagle", 20, 50);
+        static Scenario Bear = new FightScenario("A bear jumps out from the trees, what should you do?", "Bear", 15, 150);
+        static Scenario Wolf = new FightScenario("A wolf sneaks up behind you and pounces, what do you do?", "Wolf", 10, 100);
 
         // Monster List
         static List<Scenario> monsterList = new List<Scenario> { Eagle, Bear, Wolf };
